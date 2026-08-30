@@ -1,16 +1,3 @@
-"""
-main.py
-
-Unified entry point for the Social Engineering Awareness Simulator.
-
-Launches the Flask demo server in a background thread, then drops the
-instructor into the interactive CLI dashboard.
-
-Run:
-    python data/seed_data.py   # once, to populate synthetic sample data
-    python main.py
-"""
-
 import os
 import sys
 import threading
