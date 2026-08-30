@@ -163,12 +163,6 @@ socail_engine_working/
    uv pip install -r requirements.txt
    ```
 
-4. Seed the synthetic sample data (so the dashboard and reports have data before you run a live campaign):
-
-   ```bash
-   python data/seed_data.py
-   ```
-
 ---
 
 ## Quick Start
