@@ -336,13 +336,17 @@ python data/seed_data.py
 
 ---
 
-##Status
+## Status
 
 The tool is under active development where i would be adding more templates and make them more convincing, and also will work on the url analyzer.
 
-##Contributions
+---
+
+## Contributions
 
 Contributions are appreciated and welcomed, please fork me for contributions or collaborations :) 
+
+---
 
 ## License
 
