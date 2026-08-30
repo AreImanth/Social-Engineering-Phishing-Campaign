@@ -1,14 +1,3 @@
-"""
-core/tracker.py
-
-Emulates phishing-email dispatch and open/click tracking using a 1x1
-tracking pixel, for teaching purposes. No actual email is ever sent by
-this project -- "sending" just marks a campaign target's 'sent' flag so
-the dashboard has something to show. The tracking pixel route in
-server/app.py calls into this module to flip 'opened' / 'clicked' flags
-only -- it never receives form content.
-"""
-
 from core import campaign
 
 # A minimal valid 1x1 transparent PNG, served by the tracking pixel route.
