@@ -1,9 +1,3 @@
-"""
-server/app.py
-
-Flask app for the Social Engineering Awareness Simulator.
-"""
-
 import os
 import sys
 
