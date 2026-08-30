@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anti-Phishing URL Check</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, Helvetica, sans-serif; background: #f5f7fa; color: #1a1a1a; }
+  .topbar { background: #fff; border-bottom: 1px solid #e0e0e0; padding: 12px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .topbar a { color: #1a73e8; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .wrap { max-width: 960px; margin: 32px auto; background: #fff; padding: 28px 32px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  h1 { font-size: 24px; margin-bottom: 6px; }
+  .subtitle { color: #666; margin-bottom: 24px; font-size: 14px; }
+  form { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+  input[type="text"] {
+    flex: 1; min-width: 260px; padding: 10px 14px; border: 1px solid #d0d7de;
+    border-radius: 6px; font-size: 14px;
+  }
+  button {
+    padding: 10px 20px; background: #1a73e8; color: #fff; border: none;
+    border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px;
+  }
+  button:hover { background: #1557b0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+  th, td { border: 1px solid #d0d7de; padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: #333; color: #fff; font-weight: 600; }
+  tr:nth-child(even) { background: #f8f9fa; }
+  .risk-high { color: #b00020; font-weight: 700; }
+  .risk-medium { color: #e65100; font-weight: 700; }
+  .risk-low { color: #1e8e3e; font-weight: 700; }
+  .section-title { font-size: 16px; font-weight: 600; margin: 20px 0 10px; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="/">← Back to Home</a>
+    <span style="font-weight:600;color:#333;">Anti-Phishing URL Check</span>
+  </div>
+  <div class="wrap">
+    <h1>Anti-Phishing URL Heuristic Check</h1>
+    <p class="subtitle">Analyze a URL for common phishing indicators (local heuristic only — no external requests).</p>
+
+    <form method="POST" action="/url-check">
+      <input type="text" name="url" placeholder="Enter URL to analyze (e.g. https://paypa1-security.com/login)" value="{{ checked_url or '' }}" required>
+      <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+    <div class="section-title">Result for this URL</div>
+    <table>
+      <thead>
+        <tr><th>URL</th><th>Risk Level</th><th>Reasons</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ result.url }}</td>
+          <td class="risk-{{ result.risk_level }}">{{ result.risk_level | upper }}</td>
+          <td>{{ result.reasons | join(", ") }}</td>
+        </tr>
+      </tbody>
+    </table>
+    {% endif %}
+
+    <div class="section-title">Sample URLs (pre-analyzed)</div>
+    <table>
+      <thead>
+        <tr><th>URL</th><th>Risk Level</th><th>Reasons</th></tr>
+      </thead>
+      <tbody>
+        {% for r in samples %}
+        <tr>
+          <td>{{ r.url }}</td>
+          <td class="risk-{{ r.risk_level }}">{{ r.risk_level | upper }}</td>
+          <td>{{ r.reasons | join(", ") }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

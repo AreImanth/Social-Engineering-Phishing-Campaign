@@ -1,0 +1,62 @@
+{
+    "campaigns": {
+        "demo-campaign": {
+            "name": "Q3 Classroom Awareness Exercise",
+            "template": "facebook",
+            "status": "Active",
+            "created_at": "2026-08-07 23:33:38",
+            "targets": {
+                "student01@classroom-demo.local": {
+                    "sent": true,
+                    "opened": true,
+                    "clicked": true,
+                    "submitted": true
+                },
+                "student02@classroom-demo.local": {
+                    "sent": true,
+                    "opened": true,
+                    "clicked": true,
+                    "submitted": true
+                },
+                "student03@classroom-demo.local": {
+                    "sent": true,
+                    "opened": true,
+                    "clicked": true,
+                    "submitted": true
+                },
+                "student04@classroom-demo.local": {
+                    "sent": true,
+                    "opened": true,
+                    "clicked": true,
+                    "submitted": true
+                },
+                "student05@classroom-demo.local": {
+                    "sent": true,
+                    "opened": false,
+                    "clicked": true,
+                    "submitted": true
+                },
+                "student06@classroom-demo.local": {
+                    "sent": true,
+                    "opened": true,
+                    "clicked": true,
+                    "submitted": true
+                }
+            }
+        },
+        "2": {
+            "name": "test6",
+            "template": "facebook",
+            "status": "Active",
+            "created_at": "2026-08-08 04:33:47",
+            "targets": {
+                "popswelldxd@hotmail.com": {
+                    "sent": true,
+                    "opened": false,
+                    "clicked": false,
+                    "submitted": false
+                }
+            }
+        }
+    }
+}

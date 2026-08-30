@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generate Report</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, Helvetica, sans-serif; background: #f5f7fa; color: #1a1a1a; }
+  .topbar { background: #fff; border-bottom: 1px solid #e0e0e0; padding: 12px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .topbar a { color: #1a73e8; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .wrap { max-width: 640px; margin: 40px auto; background: #fff; padding: 36px 40px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align: center; }
+  h1 { font-size: 24px; margin-bottom: 12px; }
+  p { color: #555; margin-bottom: 24px; font-size: 15px; }
+  .btn {
+    display: inline-block; padding: 12px 28px; background: #1a73e8; color: #fff;
+    text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px; border: none; cursor: pointer;
+  }
+  .btn:hover { background: #1557b0; }
+  .success { background: #e6f4ea; border-left: 4px solid #1e8e3e; padding: 14px 18px; margin-top: 24px; border-radius: 4px; text-align: left; font-size: 14px; }
+  .error { background: #fce8e6; border-left: 4px solid #b00020; padding: 14px 18px; margin-top: 24px; border-radius: 4px; text-align: left; font-size: 14px; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="/">← Back to Home</a>
+    <span style="font-weight:600;color:#333;">Generate Report</span>
+  </div>
+  <div class="wrap">
+    <h1>Generate PDF Report</h1>
+    <p>Creates a security-awareness summary report (campaign metrics + captured data) as a PDF. You can generate a new report anytime.</p>
+    <form method="POST" action="/report">
+      <button type="submit" class="btn">Generate New Report</button>
+    </form>
+    {% if report_path %}
+    <div class="success">
+      Report generated successfully.<br>
+      Saved to: <strong>{{ report_path }}</strong>
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="error">
+      Error generating report: {{ error }}
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>

