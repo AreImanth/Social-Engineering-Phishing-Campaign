@@ -289,17 +289,6 @@ Interactive CLI menu loop (see [Usage — CLI Dashboard](#usage--cli-dashboard))
 
 `generate_report()` — builds a PDF (campaign metrics table, credentials table, key takeaways) using ReportLab and writes it to `data/campaign_report.pdf`. Returns the file path.
 
-### `data/seed_data.py`
-
-Populates the system with fictional data:
-
-- 6 fictional targets at `@classroom-demo.local`
-- 6 fabricated sample password strings
-- A demo campaign ("Q3 Classroom Awareness Exercise") with pre-seeded sent/opened/clicked/submitted events
-- Sample credential records for every other target (hashed with bcrypt via `SecurityHasher`)
-
-Run once before a demo:
-
 ```bash
 python data/seed_data.py
 ```
