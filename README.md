@@ -289,10 +289,6 @@ Interactive CLI menu loop (see [Usage — CLI Dashboard](#usage--cli-dashboard))
 
 `generate_report()` — builds a PDF (campaign metrics table, credentials table, key takeaways) using ReportLab and writes it to `data/campaign_report.pdf`. Returns the file path.
 
-```bash
-python data/seed_data.py
-```
-
 ---
 
 ## Ethical Use & Compliance
