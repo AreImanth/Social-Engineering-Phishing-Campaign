@@ -280,7 +280,7 @@ Emulates email dispatch tracking (no real email is sent by this module) and hold
 
 ### `anti_phishing/detector.py`
 
-Fully functional heuristic URL analyzer. Only ever inspects strings passed to it — never fetches or browses. Exports:
+This is under active development and will be added once completed, in general it would be working in this manner:
 
 - `analyze_url(url)` → `{"url": ..., "risk_level": ..., "reasons": [...]}`
 - `analyze_batch(urls)` → list of `analyze_url` results
@@ -315,24 +315,6 @@ Run once before a demo:
 
 ```bash
 python data/seed_data.py
-```
-
----
-
-## Testing
-
-The test suite covers hashing round-trips, campaign lifecycle and invalid-event handling, database read/write/clear, the anti-phishing detector's heuristics, and the Flask app's routes — including an explicit test that the `/login/` endpoint ignores and never echoes back extra fields like `username`/`password` if a modified client were to send them.
-
-**Run with unittest:**
-
-```bash
-python -m unittest tests.test_simulator
-```
-
-**Run with pytest** (if installed):
-
-```bash
-pytest tests/
 ```
 
 ---
