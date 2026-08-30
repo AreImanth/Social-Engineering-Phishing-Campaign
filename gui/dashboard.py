@@ -14,7 +14,6 @@ from core.database import DatabaseManager
 from anti_phishing import detector
 from gui import report_generator
 
-
 def print_header(title):
     print("\n" + "=" * 60)
     print(title)
