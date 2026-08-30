@@ -64,10 +64,9 @@ Everything runs locally. No external services are contacted without your explici
 | **Campaign lifecycle tracking** | Sent, opened (via tracking pixel), clicked (page view), and submitted (credential form POST) are recorded per target email and visible in the dashboard, web UI, and PDF report. |
 | **Credential capture with bcrypt** | Submitted usernames and passwords are hashed with **bcrypt** and stored in `data/captured_credentials.json`. No plaintext passwords are persisted. This demonstrates how attackers capture credentials; in a real engagement all target emails must be owned by or authorized by the organization. |
 | **Anti-phishing URL detector** | Heuristic analysis of URLs for raw IP hosts, excessive subdomains, suspicious keywords, known URL shorteners, high-abuse TLDs, and brand-name typosquatting patterns. Returns a risk level (**low / medium / high**) plus the specific reasons. The detector never fetches or browses the URLs — it only inspects the strings you pass to it. |
-| **SMTP email sending** | Build and send campaign emails via any SMTP server (Gmail, Office 365, Exchange, local MTA, etc.) with TLS support. Three built-in email templates (Facebook security alert, Google sign-in alert, Netflix account update) with brand-styled HTML bodies. |
+| **SMTP email sending** | Build and send campaign emails via any SMTP server (Gmail) with TLS support. Three built-in email templates (Facebook security alert, Google sign-in alert, Netflix account update) with brand-styled HTML bodies. |
 | **Interactive CLI dashboard** | 5-option menu for security operators: view campaign metrics, view captured credentials, run URL heuristics against sample or custom URLs, generate PDF report, exit. |
 | **PDF report generation** | ReportLab-based report with campaign metrics table, captured credentials table, and key-takeaways section — suitable for sharing with management or including in awareness program documentation. |
-| **Synthetic seed data** | `data/seed_data.py` populates the system with fictional targets (`@classroom-demo.local`) and fabricated sample passwords so the platform has data to display before a live campaign is launched. |
 
 ---
 
@@ -88,7 +87,6 @@ socail_engine_working/
 │   ├── email_sender.py          # SMTP email dispatch for campaign messages
 │   ├── templates/               # Jinja2 HTML templates
 │   │   ├── index.html            # Landing page
-│   │   ├── project-info.html     # Project description
 │   │   ├── campaigns.html        # Campaign creation / metrics UI
 │   │   ├── credentials.html      # View captured credential records
 │   │   ├── url_check.html        # Interactive anti-phishing URL checker
@@ -98,8 +96,6 @@ socail_engine_working/
 │   │   ├── google.html           # Mock Google login clone
 │   │   ├── netflix.html          # Mock Netflix login clone
 │   │   └── awareness.html        # Post-simulation red-flags training page
-│   └── static/
-│       └── logo.png             # Application logo
 │
 ├── core/                        # Core engine modules
 │   ├── __init__.py
@@ -123,11 +119,10 @@ socail_engine_working/
 ├── tests/
 │   └── test_simulator.py        # Unit tests (17 tests)
 │
-└── data/                        # Created / populated at runtime
-    ├── seed_data.py             # Generates synthetic sample dataset
-    ├── captured_credentials.json # (generated) synthetic credential records
-    ├── campaign_state.json      # (generated) campaign metrics state
-    └── campaign_report.pdf      # (generated) PDF report output
+└── data/                        # populated when a campaign is created and populated with data.
+    ├── captured_credentials.json # credential records
+    ├── campaign_state.json      # campaign metrics state
+    └── campaign_report.pdf      # PDF report output
 ```
 
 ---
@@ -201,7 +196,6 @@ The Flask app exposes the following routes:
 | Method | Route | Description |
 |---|---|---|
 | `GET` | `/` | Landing page with links to demo pages and navigation to all other sections. |
-| `GET` | `/project-info` | Project description and context page. |
 | `GET` | `/campaigns` | View all campaigns and their metrics. |
 | `POST` | `/campaigns` | Create a new campaign (name, template, comma/semicolon-separated target emails). |
 | `GET` | `/credentials` | View all captured credential records (hashed passwords, timestamps, IPs, user agents). |
