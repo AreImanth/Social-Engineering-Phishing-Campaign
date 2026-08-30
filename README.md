@@ -116,9 +116,6 @@ socail_engine_working/
 │   └── detector.py              # analyze_url() / analyze_batch() — fully
 │                                 # functional, never fetches or browses URLs
 │
-├── tests/
-│   └── test_simulator.py        # Unit tests (17 tests)
-│
 └── data/                        # populated when a campaign is created and populated with data.
     ├── captured_credentials.json # credential records
     ├── campaign_state.json      # campaign metrics state
