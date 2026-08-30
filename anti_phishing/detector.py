@@ -1,18 +1,3 @@
-"""
-anti_phishing/detector.py
-
-Heuristic analysis of URLs/domains for common phishing indicators:
-  - Raw IP address used as the host instead of a domain name
-  - Excessive subdomains ("mimicry" via long lookalike subdomains)
-  - Suspicious keywords often used in phishing domains
-  - Brand-name mimicry (e.g. "paypa1" instead of "paypal")
-  - Use of URL shorteners
-  - Non-standard TLDs commonly abused in phishing campaigns
-
-This module only ever analyzes strings you pass to it -- it does not
-fetch, browse, or interact with the URLs in any way.
-"""
-
 import re
 from urllib.parse import urlparse
 
