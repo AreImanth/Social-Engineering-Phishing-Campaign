@@ -1,9 +1,3 @@
-"""
-gui/report_generator.py
-
-Compiles a clean, tabular PDF security-awareness report using ReportLab.
-"""
-
 import os
 import sys
 from datetime import datetime, timezone
