@@ -1,9 +1,3 @@
-"""
-gui/dashboard.py
-
-Interactive command-line dashboard for the awareness demo.
-"""
-
 import sys
 import os
 
