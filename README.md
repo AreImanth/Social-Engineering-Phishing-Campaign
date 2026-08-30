@@ -22,6 +22,8 @@ A Flask-based phishing campaign simulation and awareness platform designed for *
 - [Core Modules](#core-modules)
 - [Testing](#testing)
 - [Ethical Use & Compliance](#ethical-use--compliance)
+- [Status](#Status)
+- [Contributions](#Contributions)
 - [License](#license)
 
 ---
@@ -333,6 +335,14 @@ python data/seed_data.py
 - **Comply with applicable laws and policies.** Depending on your jurisdiction and organization, phishing simulations may be subject to data protection regulations, employee privacy laws, and internal IT policy. Consult your legal and compliance teams before deploying.
 
 ---
+
+##Status
+
+The tool is under active development where i would be adding more templates and make them more convincing, and also will work on the url analyzer.
+
+##Contributions
+
+Contributions are appreciated and welcomed, please fork me for contributions or collaborations :) 
 
 ## License
 
