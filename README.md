@@ -82,7 +82,6 @@ socail_engine_working/
 ├── LICENSE                      # MIT license
 │
 ├── server/                      # Flask application
-│   ├── __init__.py
 │   ├── app.py                   # All Flask routes
 │   ├── email_sender.py          # SMTP email dispatch for campaign messages
 │   ├── templates/               # Jinja2 HTML templates
@@ -98,7 +97,6 @@ socail_engine_working/
 │   │   └── awareness.html        # Post-simulation red-flags training page
 │
 ├── core/                        # Core engine modules
-│   ├── __init__.py
 │   ├── campaign.py              # Campaign lifecycle manager (JSON-backed,
 │   │                              thread-safe, file-persisted)
 │   ├── database.py              # Credentials database manager (JSON-backed,
@@ -107,12 +105,10 @@ socail_engine_working/
 │   └── tracker.py               # Tracking-pixel and event emulation helpers
 │
 ├── gui/                         # Operator console and reporting
-│   ├── __init__.py
 │   ├── dashboard.py             # Interactive CLI menu (5 options)
 │   └── report_generator.py      # ReportLab PDF report compiler
 │
 ├── anti_phishing/               # Defensive URL heuristic module
-│   ├── __init__.py
 │   └── detector.py              # analyze_url() / analyze_batch() — fully
 │                                 # functional, never fetches or browses URLs
 │
